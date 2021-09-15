@@ -5,6 +5,7 @@ import Games from "./components/Games.js"
 import Navbar from "./components/Navbar"
 import User from "./components/User"
 import React from "react";
+import Animated from "./components/videos/Animated.mp4";
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,16 +13,36 @@ import {
   Link
 } from "react-router-dom";
 
-const NavBar = () => {
+const fetchData = () => {
+  return fetch("http://localhost:9292/")
+        .then((response) => response.json())
+        .then((data) => console.log(data));}
+
+const App = () => {
   return (
-    <div className="Navbar">
+    <div className="App">
+    
       <Navbar/>
       <Router>
       <div>
-  
+      <video autoPlay loop muted
+        style = {{
+          position: "absolute",
+          width: "100%", 
+          left: "50%", 
+          top: "50%", 
+          height: "100%", 
+          objectFit: "cover",
+          transform: "translate(-50%, -50%)",
+          zIndex:"-1"
+        }}>
+        
+      <source src = {Animated} type = "video/mp4"/>
+      </video>
+      
+     
+      
 
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/games" component = "{Games}">
             <Games />
@@ -38,5 +59,5 @@ const NavBar = () => {
     </div>
   );
 }
-
-export default NavBar;
+fetchData();
+export default App;
