@@ -1,32 +1,42 @@
-import logo from './logo.svg';
+
 import './App.css';
 import * as ReactBootStrap from "react-bootstrap";
+import Games from "./components/Games.js"
+import Navbar from "./components/Navbar"
+import User from "./components/User"
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
-function App() {
+const NavBar = () => {
   return (
-    <div className="App">
-     <ReactBootStrap.Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-  <ReactBootStrap.Container>
-  <ReactBootStrap.Navbar.Brand href="#home">2021 Video Game Guide</ReactBootStrap.Navbar.Brand>
-  <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
-  <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
-    <ReactBootStrap.Nav className="me-auto">
-      <ReactBootStrap.NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-        <ReactBootStrap.NavDropdown.Item href="#users">Placeholder</ReactBootStrap.NavDropdown.Item>
-        <ReactBootStrap.NavDropdown.Item href="#games">Placeholder</ReactBootStrap.NavDropdown.Item>
-      </ReactBootStrap.NavDropdown>
-    </ReactBootStrap.Nav>
-    <ReactBootStrap.Nav>
- 
-      <ReactBootStrap.Nav.Link eventKey={2} href="#">
-        Submit review?
-      </ReactBootStrap.Nav.Link>
-    </ReactBootStrap.Nav>
-  </ReactBootStrap.Navbar.Collapse>
-  </ReactBootStrap.Container>
-</ReactBootStrap.Navbar>
+    <div className="Navbar">
+      <Navbar/>
+      <Router>
+      <div>
+  
+
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/games" component = "{Games}">
+            <Games />
+          </Route>
+          <Route path="/user" component = {User}>
+            <User />
+          </Route>
+          <Route path="/navbar" component = {Navbar}>
+            <navBar />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
     </div>
   );
 }
 
-export default App;
+export default NavBar;
