@@ -1,16 +1,20 @@
-import React from 'react';
 
-const fetchData = () => {
-    return fetch("http://localhost:9292/games")
-          .then((response) => response.json())
-          .then((data) => console.log(data));}
-const Games = () => {
+import React from 'react';
+const Games = (props) => {
+
 return (
-    <div className="App">
-        <h1> Games </h1>
+ 
+     <div class = "gameLibrary">
+        {props.gamedata.map((game, index) => {
+            return (
+                <div class = "game">
+                <h2 class = "gameTitle">{game.game_name}</h2>
+                <img src={game.game_image} />
+                </div>
+            )
+        })}
+                
     </div>
-)
+    )
 }
-fetchData();
-console.log(fetchData);
 export default Games;

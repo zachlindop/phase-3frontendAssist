@@ -1,3 +1,24 @@
+.game{
+width: 30%;
+height: 500px;
+border-radius: 25px
+
+}
+img{
+max-width: 100%;
+border-radius: 25px
+
+}
+h2.gameTitle{
+  height: 80px;
+
+}
+.gameLibrary{
+  display: flex;
+  align-content:center;
+  flex-flow: row wrap;
+}
+
 .App {
   text-align: center;
 
