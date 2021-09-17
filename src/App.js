@@ -21,6 +21,8 @@ import {
 
 function App(){
   const[games, setGames] = useState( [] )
+  const[users, setUsers] = useState( [] )
+
   console.log("State of Our Games:", games)
   useEffect( () => {
      fetch ("http://localhost:9292/games")
@@ -31,16 +33,21 @@ function App(){
             
           }, [])
 
-          const[users, setUsers] = useState( [] )
+          
   console.log("State of Our Users:", users)
   useEffect( () => {
      fetch ("http://localhost:9292/users")
             .then((response) => response.json())
-            .then(fetchedUsers => {console.log(fetchedUsers)
-            setUsers(fetchedUsers)
+            .then(fetchedUsers => {console.log(JSON.stringify(fetchedUsers))
+              setUsers(fetchedUsers)
           })
             
           }, [])
+
+          const inAppDeleteGame =()=>{
+            console.log("Delete In APP!!")
+
+          }
 
   
   return (
@@ -75,8 +82,7 @@ function App(){
            Games <Games gamedata = {games} />
           </Route>
           <Route path="/user" component = {User}>
-            User <User userdata = {User} />
-            <User />
+            User <User users={users} />
           </Route>
           <Route path="/home" component = {Home}>
            home <Home homedata = {Home} />
