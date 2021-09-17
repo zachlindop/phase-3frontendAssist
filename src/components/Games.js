@@ -1,5 +1,6 @@
 
 import React, {useState, useEffect}  from 'react';
+import { Button } from 'react-bootstrap'
 
 const Games = (props) => {
 
@@ -41,24 +42,28 @@ const Games = (props) => {
     }
 
 return (
- 
-     <div class = "gameLibrary">
-
-<form className="note-editor">
+<div>
+    <form className="note-editor">
           <label htmlFor='rating'>              
           </label>
           <label htmlFor='text'>
               Game Name:
-              <textarea onChange={(e) => setGameName(e.target.value)} value={gameName} />
+              <input type= 'text' onChange={(e) => setGameName(e.target.value)} value={gameName} />
           </label>  
+          <br/>
+
           <label htmlFor='text'>
               Game Image:
-              <textarea onChange={(e) => setGameImage(e.target.value)} value={gameImage} />
+              <input type= 'text' onChange={(e) => setGameImage(e.target.value)} value={gameImage} />
           </label>        
-          <div className="button-row">            
-              <button onClick={handleCreateGame} type="button">Create Game</button>              
+          <div className="button-row">                          
+              <Button onClick={handleCreateGame} variant="warning">Create Game </Button>{' '}
           </div>
         </form>
+
+ 
+     <div class = "gameLibrary">
+
 
         {props.gamedata.map((game, index) => {
             return (
@@ -66,11 +71,11 @@ return (
                 <div class = "game">
                 <h2 class = "gameTitle">{game.game_name}</h2>
                 <img src={game.game_image} />
-                <button onClick={ e => deleteGame(game.id)}> Delete Me </button>
+                <Button onClick={ e => deleteGame(game.id)}variant="warning">Delete Game </Button>{' '}
                 </div>
             )
         })}
-                
+    </div>           
     </div>
     )
 }

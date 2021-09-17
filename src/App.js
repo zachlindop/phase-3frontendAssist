@@ -79,10 +79,10 @@ function App(){
 
         <Switch>
           <Route path="/games" component = {Games}>
-           Games <Games gamedata = {games} />
+            <Games gamedata = {games} />
           </Route>
           <Route path="/user" component = {User}>
-            User <User users={users} />
+             <User users={users} />
           </Route>
           <Route path="/home" component = {Home}>
            home <Home homedata = {Home} />
