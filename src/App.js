@@ -24,14 +24,7 @@ function App(){
   const[users, setUsers] = useState( [] )
 
   console.log("State of Our Games:", games)
-  useEffect( () => {
-     fetch ("http://localhost:9292/games")
-            .then((response) => response.json())
-            .then(fetchedGames => {console.log(fetchedGames)
-            setGames(fetchedGames)
-          })
-            
-          }, [])
+  
 
           
   console.log("State of Our Users:", users)

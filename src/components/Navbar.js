@@ -13,8 +13,6 @@ function Navbar() {
   <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
     <ReactBootStrap.Nav className="me-auto">
       <ReactBootStrap.NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-        <ReactBootStrap.NavDropdown.Item href="user">Users</ReactBootStrap.NavDropdown.Item>
-        <ReactBootStrap.NavDropdown.Item href="homeform">Form</ReactBootStrap.NavDropdown.Item>
         <ReactBootStrap.NavDropdown.Item href="games">Games</ReactBootStrap.NavDropdown.Item>
       </ReactBootStrap.NavDropdown>
     </ReactBootStrap.Nav>
